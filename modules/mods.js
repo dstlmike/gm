@@ -112,7 +112,7 @@ function addModCmd(request, owner, callback) {
     } else {
       var newMod = {name: val[1], id: val[2]};
       addModToDB(newMod);
-      mods.push(newMod);
+     // mods.push(newMod);
       callback(true, val[1] + " is now a mod.", []);
     }
   } else {
