@@ -1,6 +1,12 @@
 #!/bin/env node
-var http, director, bot, router, server, port, db;
-
+var http, director, bot, router, server, port, ip, db;
+var ipAddr = req.headers["x-forwarded-for"]; 
+if (ipAddr){ 
+  var list = ipAddr.split(","); 
+  ipAddr = list[list.length-1]; 
+} else { 
+  ipAddr = req.connection.remoteAddress; 
+}
 http        = require('http');
 director    = require('director');
 bot         = require('./bot.js');
@@ -35,10 +41,12 @@ server = http.createServer(function (req, res) {
   });
 });
 
-port = Number(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002);
+port = Number(process.env.PORT || 8080);
 ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 
-server.listen(port, ip);
+server.listen(port, ipAddr, function(res) {
+  console.log('Server started on port: ' + port + ', IP: ' + ipAddr)
+});
 
 function ping() {
   this.res.writeHead(200);
