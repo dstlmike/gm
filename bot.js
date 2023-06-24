@@ -81,7 +81,7 @@ exports.commands = function() {
 function sendDelayedMessage(msg, attachments, botID) {
   setTimeout(function() {
     postMessage(msg, attachments, botID);
-  }, config.delay_time);
+  }, 1000); //config.delay_time);
 }
 
 function postMessage(botResponse, attachments, botID) {
