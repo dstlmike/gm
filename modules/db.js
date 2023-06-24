@@ -86,7 +86,7 @@ exports.getAllDocuments = function(collection, callback) {
   if(err) throw err;
     var allDocs = collection.find().toArray(function(err, docs) {
       callback(docs);
-      db.close();
+      client.close();
     });
   });
 }
