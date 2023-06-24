@@ -38,7 +38,7 @@ exports.respond = function(botRoom) {
 
   var dataHash = {
     request:      request,
-    currentBot:   process.env.botID, //rooms.getRoom(botRoom),
+    currentBot:   rooms.getRoom(botRoom),
     isMod:        mods.isMod(request.user_id),
     bots:         rooms.getRooms(),
     funMode:      sysCommands.fun_mode(),
@@ -51,8 +51,8 @@ exports.respond = function(botRoom) {
   if (dataHash.request.sender_type == 'bot') return;
   dataHash.request.text = dataHash.request.text.trim();
 
-//  if (!rooms.getRoom(botRoom).id && botRoom != 'config')
-   // return;
+  if (!rooms.getRoom(botRoom).id && botRoom != 'config')
+   return;
 
   for(var lib in checkCommandsHSH) {
     checkCommandsHSH[lib].checkCommands(dataHash, function(check, result, attachments){
