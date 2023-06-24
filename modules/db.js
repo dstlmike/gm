@@ -1,6 +1,47 @@
+
+var { MongoClient } = require('mongodb');
+var { MongoClient, ServerApiVersion } = require('mongodb');
+var fs = require('fs');
+
+var credentials = fs.readFileSync('<path_to_certificate>');
+
+var client = new MongoClient('mongodb://cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/?ssl=true&replicaSet=Cluster0-shard-0&authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority', {
+  sslKey: credentials,
+  sslCert: credentials
+});
+
+async function run() {
+  try {
+    await client.connect();
+    var database = client.db("testDB");
+    var collection = database.collection("testCol");
+    var  docCount = await collection.countDocuments({});
+    console.log(docCount);
+    // perform actions using client
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+
+run().catch(console.dir);
+
+
+
+var MongoClient = require('mongodb').MongoClient;
+
+var uri = "mongodb://<username>:<password>@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
+MongoClient.connect(uri, function(err, client) {
+  var collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+
+
 var mongoDB     = require('mongodb').MongoClient;
 
-var connection_string = 'mongodb://127.0.0.1:27017/nodejs';
+var connection_string = 'mongodb://' + process.env.OPENSHIFT_MONGODB_DB_USERNAME + ':' + process.env.OPENSHIFT_MONGODB_DB_PASSWORD + '@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'; //mongodb://127.0.0.1:27017/nodejs';
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
   connection_string = 'mongodb://' + process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
