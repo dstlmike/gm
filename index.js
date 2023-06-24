@@ -36,16 +36,17 @@ server = http.createServer(function (req, res) {
 });
 
 port = Number(process.env.PORT || 8080);
-ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+ip = process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0" || "127.0.0.1";
 
-server.listen(port, ipAddr, function(req, res) {
-  ipAddr = req.headers["x-forwarded-for"]; 
+server.listen(port, ip, function(req, res) {
+/*  ipAddr = req.headers["x-forwarded-for"]; 
 if (ipAddr){ 
   var list = ipAddr.split(","); 
   ipAddr = list[list.length-1]; 
 } else { 
   ipAddr = req.connection.remoteAddress; 
 }
+*/
   console.log('Server started on port: ' + port + ', IP: ' + ipAddr)
 });
 
