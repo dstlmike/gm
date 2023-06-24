@@ -10,8 +10,8 @@ exports.modName = "Rooms Control";
 function getAllRooms(){
   db.getAllDocuments(db_table, function(res){
     rooms = [];
-    for (room in res) {
-      rooms[res[room].name] = res[room].id;
+    for (room in rooms) { //res) {
+      rooms[room].name = rooms[room].id; //res[room].name] = res[room].id;
     }
   });
 }
@@ -39,10 +39,10 @@ exports.getRoom = function(path) {
   var room = {};
   path = path.toLowerCase();
 
- // if (rooms[path]) {
+  if (rooms[path]) {
     room.type = path;
     room.id = rooms[path];
- // }
+  }
 
   return room;
 }
@@ -71,7 +71,7 @@ function cmdRoomAdd(request, currentBot, owner, callback) {
 
   if (regex.test(reqText)){
     var val = regex.exec(reqText);
-    console.log(owner.id);
+   // console.log(owner.id);
     if (request.user_id != owner.id || currentBot.type != 'config')
       return true;
 
