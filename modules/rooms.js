@@ -1,7 +1,7 @@
 var db_table = 'rooms';
 var db = require('./db.js');
 var mod_config = require('../config/config.js');
-var rooms = [];
+var rooms;
 var roomCommands = [cmdRoomAdd, cmdToken, cmdConfig];
 
 getAllRooms();
@@ -9,7 +9,7 @@ exports.modName = "Rooms Control";
 
 function getAllRooms(){
   db.getAllDocuments(db_table, function(res){
-    rooms = res; //[];
+    rooms = [];
     for (room in res) {
       rooms[res[room].name] = res[room].id;
     }
