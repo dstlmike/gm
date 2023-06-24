@@ -24,6 +24,6 @@ function setConfig(){
   });
 }
 
-exports.setConfig = setConfig;
+exports.setConfig = setConfig();
 exports.bot_name = 'GMBot';
-exports.delay_time = 10000;
+exports.delay_time = 500;
