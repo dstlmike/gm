@@ -21,7 +21,7 @@ var urbanDict    = require('./custom_commands/urban-dictionary.js');
 //load config
 var config       = require('./config/config.js');
 var HTTPS        = require('https');
-var botID = "278d003500f103570550f5a604";
+//var botID = "278d003500f103570550f5a604";
 //Temporarily just an array of the commands functions. Make an object with configuration values.
 var checkCommandsHSH = [mods, sysTriggers, userCmds, userMentions, sysCommands, atEveryone, funCommands, quotes, rooms, gif, catFact, urbanDict];
 
@@ -86,7 +86,7 @@ function sendDelayedMessage(msg, attachments, botID, botReq) {
 
 function postMessage(botResponse, attachments, botID, botReq) {
   var options, body, botReq, botID;
-botID = "278d003500f103570550f5a604";
+//botID = "278d003500f103570550f5a604";
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
