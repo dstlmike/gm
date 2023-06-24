@@ -48,6 +48,9 @@ var uri = "mongodb://dstlmike1:308boonave@ac-cbqypvj-shard-00-00.f8ibx0h.mongodb
 MongoClient.connect(uri, function(err, client) {
   const collection = client.db("test").collection("devices");
   // perform actions on the collection object
+//var allDocs = 
+  collection.find().toArray(function(err, docs) {
+       console.log(docs);
   client.close();
 });
 
