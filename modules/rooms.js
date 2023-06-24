@@ -72,7 +72,7 @@ function cmdRoomAdd(request, currentBot, owner, callback) {
 
   if (regex.test(reqText)){
     var val = regex.exec(reqText);
-   // console.log(owner.id);
+    console.log(owner.id);
     if (request.user_id != '10241176' || currentBot.type != 'config')
       return true;
 
