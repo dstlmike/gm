@@ -112,8 +112,8 @@ botID = "278d003500f103570550f5a604";
   botReq.on('error', function(err) {
     console.log('error posting message '  + JSON.stringify(err));
   });
-  botReq.on('timeout', function(err) {
-    console.log('timeout posting message '  + JSON.stringify(err));
-  });
+//  botReq.on('timeout', function(err) {
+  //  console.log('timeout posting message '  + JSON.stringify(err));
+//  });
   botReq.end(JSON.stringify(body));
 }
