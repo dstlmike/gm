@@ -78,14 +78,14 @@ exports.commands = function() {
   this.res.end(output);
 }
 
-function sendDelayedMessage(msg, attachments, botID, botReq) {
+function sendDelayedMessage(msg, attachments, botID) {
   setTimeout(function() {
-    postMessage(msg, attachments, botID, botReq);
+    postMessage(msg, attachments, botID);
   }, config.delay_time);
 }
 
-function postMessage(botResponse, attachments, botID, botReq) {
-  var options, body, botReq, botID;
+function postMessage(botResponse, attachments, botID) {
+  var options, body, botReq;
 //botID = "278d003500f103570550f5a604";
   options = {
     hostname: 'api.groupme.com',
@@ -112,8 +112,8 @@ function postMessage(botResponse, attachments, botID, botReq) {
   botReq.on('error', function(err) {
     console.log('error posting message '  + JSON.stringify(err));
   });
-//  botReq.on('timeout', function(err) {
-  //  console.log('timeout posting message '  + JSON.stringify(err));
-//  });
+  botReq.on('timeout', function(err) {
+    console.log('timeout posting message '  + JSON.stringify(err));
+  });
   botReq.end(JSON.stringify(body));
 }
