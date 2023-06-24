@@ -26,4 +26,4 @@ function setConfig(){
 
 exports.setConfig = setConfig;
 exports.bot_name = 'GMBot';
-exports.delay_time = 2000;
+exports.delay_time = 10000;
