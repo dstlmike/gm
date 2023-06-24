@@ -7,7 +7,10 @@ exports.debug = process.env.DEBUG || false;
 exports.env = function() {
   return env;
 }
-
+exports.owner = {
+ 'name': 'Alex De A',
+'id': '10241176'
+}
 setConfig();
 
 function setConfig(){
