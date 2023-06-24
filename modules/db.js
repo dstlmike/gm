@@ -84,7 +84,7 @@ exports.getAllDocuments = function(collection, callback) {
   const collection = client.db("test").collection("devices");
 
   if(err) throw err;
-    var allDocs = db.collection(collection).find().toArray(function(err, docs) {
+    var allDocs = client.db(collection).find().toArray(function(err, docs) {
       callback(docs);
       db.close();
     });
