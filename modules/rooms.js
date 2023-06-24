@@ -41,7 +41,7 @@ exports.getRoom = function(path) {
 
   if (rooms[path]) {
     room.type = path;
-    room.id = rooms[path];
+    room.id = process.env.botID; //rooms[path];
   }
 
   return room;
