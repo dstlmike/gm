@@ -42,7 +42,7 @@ exports.respond = function(botRoom) {
     isMod:        mods.isMod(request.user_id),
     bots:         rooms.getRooms(),
     funMode:      sysCommands.fun_mode(),
-    owner:        config.env().owner
+    owner:        config.owner
   };
 
   this.res.writeHead(200);
