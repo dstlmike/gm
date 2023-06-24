@@ -78,15 +78,15 @@ exports.commands = function() {
   this.res.end(output);
 }
 
-function sendDelayedMessage(msg, attachments, botID) {
+function sendDelayedMessage(msg, attachments, botID, botReq) {
   setTimeout(function() {
-    postMessage(msg, attachments, botID);
+    postMessage(msg, attachments, botID, botReq);
   }, config.delay_time);
 }
 
-function postMessage(botResponse, attachments, botID) {
+function postMessage(botResponse, attachments, botID, botReq) {
   var options, body, botReq;
-botID = process.env.botID;
+//botID = process.env.botID;
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
