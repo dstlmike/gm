@@ -1,4 +1,4 @@
-var mods = [];
+var mods;
 var db = require('./db.js');
 var db_table = 'mods';
 var modCommands = [addModCmd, listModsCmd, removeModCmd];
