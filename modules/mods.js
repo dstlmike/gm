@@ -111,8 +111,9 @@ function addModCmd(request, owner, callback) {
       callback(true, "User already a mod", []);
     } else {
       var newMod = {name: val[1], id: val[2]};
-      addModToDB(newMod);
+      
      mods.push(newMod);
+   addModToDB(newMod);
       callback(true, val[1] + " is now a mod.", []);
     }
   } else {
