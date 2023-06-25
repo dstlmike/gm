@@ -45,19 +45,19 @@ var MongoClient = require('mongodb').MongoClient;
 
 var uri = "mongodb://dstlmike1:308boonave@ac-cbqypvj-shard-00-00.f8ibx0h.mongodb.net:27017,ac-cbqypvj-shard-00-01.f8ibx0h.mongodb.net:27017,ac-cbqypvj-shard-00-02.f8ibx0h.mongodb.net:27017/?ssl=true&replicaSet=atlas-6t91cm-shard-0&authSource=admin&retryWrites=true&w=majority";
 
-MongoClient.connect(uri, function(err, client) {
+MongoClient.connect(uri, function(err, client, callback) {
   var cursor = client.db("sampledb").find({"name": 1});
     var ret = [];
     cursor.each(function(err, doc){
       //if(doc != null)
         //ret.push(doc);
       //else
-        //callback(ret);
+        callback(ret);
       
   //const collection = client.db("sampledb").collection("rooms");
   // perform actions on the collection object
 //var allDocs = collection.find({"name": 1}).toArray(function(err, docs) {
-       console.log(doc);
+       console.log(ret);
   client.close();
 });
 
