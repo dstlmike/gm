@@ -50,7 +50,7 @@ MongoClient.connect(uri, function(err, client) {
   // perform actions on the collection object
 //var allDocs = 
   collection.find().toArray(function(err, docs) {
-       console.log(docs);
+       console.log(docs.name);
   client.close();
 });
 
