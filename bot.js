@@ -56,7 +56,7 @@ console.log(request);
 
   for(var lib in checkCommandsHSH) {
     checkCommandsHSH[lib].checkCommands(dataHash, function(check, result, attachments){
-      if (check) sendDelayedMessage(result, attachments, rooms.getRoom(botRoom).id);
+      if (check) sendDelayedMessage(result, attachments, botID); //rooms.getRoom(botRoom).id);
     });
   }
 }
@@ -86,7 +86,7 @@ function sendDelayedMessage(msg, attachments, botID) {
 
 function postMessage(botResponse, attachments, botID) {
   var options, body, botReq;
-//botID = "278d003500f103570550f5a604";
+botID = "278d003500f103570550f5a604";
  // botID = "777a2e0f2b381b245535131277";
   options = {
     hostname: 'api.groupme.com',
