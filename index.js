@@ -4,7 +4,7 @@ var http, director, bot, router, server, port, ip, ipAddr, db;
 http        = require('http');
 director    = require('director');
 bot         = require('./bot.js');
-
+//
 router = new director.http.Router({
   '/'    : {
     get: ping
