@@ -71,7 +71,7 @@ var MongoClient = require('mongodb').MongoClient;
 MongoClient.connect("mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority", function(err, db) { 
   if (err) throw err; 
   var dbo = db.db("sampledb"); //Find all documents in the customers collection: 
-  dbo.collection("rooms").find({"name": 1}).toArray(function(err, result) { 
+  dbo.collection("rooms").find({}).toArray(function(err, result) { 
     if (err) throw err; 
     console.log(result); 
     db.close(); 
