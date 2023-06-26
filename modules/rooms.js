@@ -96,11 +96,11 @@ function cmdConfig(request, currentBot, owner, callback) {
   if (regex.test(reqText)) {
     var val = regex.exec(reqText);
 
-    if (rooms['config']){
+  //  if (rooms['config']){
     //  console.log(request);
-      callback(true, "You've already set a config ID. If you wish to reset it for some reason, you'll need to clear the database and start over.")
-     return true;
-   } else
+    //  callback(true, "You've already set a config ID. If you wish to reset it for some reason, you'll need to clear the database and start over.")
+   //  return true;
+//   } else
     if (val[1].length != 26) {
       callback(true, "That's not the right length for a Bot ID", []);
       return true;
@@ -108,12 +108,12 @@ function cmdConfig(request, currentBot, owner, callback) {
 
     rooms['config'] = val[1];
     addRoomToDB({
-      name: 'config',
+      name: 'config1',
       id: val[1]
     });
 
     addConfigToDB({
-      config: 'owner',
+      config: 'owner1',
       id: request.user_id
     });
 
