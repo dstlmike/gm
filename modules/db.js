@@ -64,7 +64,7 @@ MongoClient.connect(uri, function(err, db) {
 });
 
 */
-
+/*
 
 var MongoClient = require('mongodb').MongoClient; 
 //var url = "mongodb://localhost:27017/"; 
@@ -78,7 +78,7 @@ MongoClient.connect("mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mon
   }); 
 });
                                                                                                                                       
-                                                                                                                                      
+*/                                                                                                                                      
 
 var mongoDB     = require('mongodb').MongoClient;
 //var db = require('mongodb').Db;
