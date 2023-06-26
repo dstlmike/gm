@@ -9,11 +9,11 @@ exports.modName = "Rooms Control";
 
 function getAllRooms(){
   db.getAllDocuments(db_table, function(res){
-    //rooms = [];
-    res = [];
-    for (room in res) {
-    //  rooms[room].name = rooms[room].id; //
-      rooms[res[room].name] = res[room].id;
+    rooms = res; //[];
+    //res = [];
+    for (room in rooms) {
+      rooms[room].name = rooms[room].id; //
+     // rooms[res[room].name] = res[room].id;
     }
   });
 }
@@ -34,6 +34,7 @@ function setAccessTokenDB(config, callback){
 
 
 exports.getRooms = function() {
+  rooms = [];
   return rooms;
 }
 
@@ -41,10 +42,10 @@ exports.getRoom = function(path) {
   var room = {};
   path = path.toLowerCase();
 
-  //if (rooms[path]) {
+  if (rooms[path]) {
     room.type = path;
-    room.id = botID; //path; //rooms[path];
- // }
+    room.id = rooms[path];
+  }
 
   return room;
 }
