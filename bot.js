@@ -44,7 +44,7 @@ exports.respond = function(botRoom) {
     funMode:      sysCommands.fun_mode(),
     owner:        config.owner
   };
-console.log(request + '\n' + response);
+console.log(request);
   this.res.writeHead(200);
   this.res.end();
 
