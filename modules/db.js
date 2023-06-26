@@ -70,7 +70,7 @@ var MongoClient = require('mongodb').MongoClient;
 //var url = "mongodb://localhost:27017/"; 
 MongoClient.connect(connection_string, function(err, db) { 
   if (err) throw err; 
-  var dbo = db.mydbsampledb"); //Find all documents in the customers collection: 
+  var dbo = db.db("sampledb"); //Find all documents in the customers collection: 
   dbo.collection("rooms").find({}).toArray(function(err, result) { 
     if (err) throw err; 
     console.log(result); 
