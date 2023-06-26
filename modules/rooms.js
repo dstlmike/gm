@@ -97,7 +97,7 @@ function cmdConfig(request, currentBot, owner, callback) {
     var val = regex.exec(reqText);
 
     if (rooms['config']){
-      console.log(request);
+    //  console.log(request);
       callback(true, "You've already set a config ID. If you wish to reset it for some reason, you'll need to clear the database and start over.")
      return true;
    } else
