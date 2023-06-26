@@ -6,7 +6,7 @@ var roomCommands = [cmdRoomAdd, cmdToken, cmdConfig];
 var botID = "777a2e0f2b381b245535131277";
 getAllRooms();
 exports.modName = "Rooms Control";
-//
+
 function getAllRooms(){
   db.getAllDocuments(db_table, function(res){
     rooms = [];
