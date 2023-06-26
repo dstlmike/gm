@@ -51,8 +51,8 @@ console.log(request);
   if (dataHash.request.sender_type == 'bot') return;
   dataHash.request.text = dataHash.request.text.trim();
 
-  if (!rooms.getRoom(botRoom).id && botRoom != 'config1')
-   return;
+ // if (!rooms.getRoom(botRoom).id && botRoom != 'config1')
+ //  return;
 
   for(var lib in checkCommandsHSH) {
     checkCommandsHSH[lib].checkCommands(dataHash, function(check, result, attachments){
@@ -87,6 +87,7 @@ function sendDelayedMessage(msg, attachments, botID) {
 function postMessage(botResponse, attachments, botID) {
   var options, body, botReq;
 //botID = "278d003500f103570550f5a604";
+  botID = "777a2e0f2b381b245535131277";
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
