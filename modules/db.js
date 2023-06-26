@@ -107,7 +107,7 @@ exports.getAllDocuments = function(collection, callback) {
     var allDocs = db.collection(collection).find().toArray(function(err, docs) {
       callback(docs);
       //db.close();
-      allDocs;
+   //   allDocs;
     });
   });
 }
