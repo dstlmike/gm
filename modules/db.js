@@ -68,7 +68,7 @@ MongoClient.connect(uri, function(err, db) {
 
 var MongoClient = require('mongodb').MongoClient; 
 //var url = "mongodb://localhost:27017/"; 
-MongoClient.connect("mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/gm?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority", function(err, db) { 
+MongoClient.connect("mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority", function(err, db) { 
   if (err) throw err; 
   var dbo = db.db("sampledb"); //Find all documents in the customers collection: 
   dbo.collection("rooms").find().toArray(function(err, result) { 
