@@ -25,7 +25,7 @@ function addConfigToDB(config1, callback){
   db.addDoc('config1', config1, callback);
 }
 
-function setAccessTokenDB(config, callback){
+function setAccessTokenDB(config1, callback){
   db.updateOneDoc('config1', {config1: config1.config1}, {$set: {'access_token': config1.access_token}}, function(){
     mod_config.setConfig();
   });
