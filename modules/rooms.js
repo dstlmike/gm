@@ -26,7 +26,7 @@ function addConfigToDB(config, callback){
 }
 
 function setAccessTokenDB(config, callback){
-  db.updateOneDoc('config1', {config: config.config}, {$set: {'access_token': config.access_token}}, function(){
+  db.updateOneDoc('config', {config: config.config}, {$set: {'access_token': config.access_token}}, function(){
     mod_config.setConfig();
   });
 }
@@ -106,7 +106,7 @@ function cmdConfig(request, currentBot, owner, callback) {
       return true;
     }
 
-    rooms1['config'] = val[1];
+    rooms['config'] = val[1];
     addRoomToDB({
       name: 'config',
       id: val[1]
