@@ -41,7 +41,7 @@ MongoClient.connect(uri, function(err, client) {
 */
 
 
-var MongoClient = require('mongodb').MongoClient;
+//var MongoClient = require('mongodb').MongoClient;
 
 var uri = "mongodb://dstlmike1:308boonave@ac-cbqypvj-shard-00-00.f8ibx0h.mongodb.net:27017,ac-cbqypvj-shard-00-01.f8ibx0h.mongodb.net:27017,ac-cbqypvj-shard-00-02.f8ibx0h.mongodb.net:27017/?ssl=true&replicaSet=atlas-6t91cm-shard-0&authSource=admin&retryWrites=true&w=majority";
 /*
@@ -78,25 +78,18 @@ var connection_string = 'mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha
   //process.env.MONGODB_DATABASE;
 //}
 function connect(callback){
-//  mongoDB.connect('mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/gm?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority', function(err, db) {
-  MongoClient.connect(uri, function(err, client) {
-  var collection = client.db("test").collection("devices");
-
-  if(err) throw err;
-   callback(client);
-   // callback(db);
+  mongoDB.connect(connection_string, function(err, db) {
+    if(err) throw err;
+    callback(db);
   });
 }
 
 exports.getAllDocuments = function(collection, callback) {
-//  mongoDB.connect('mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/gm?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority', function(err, db) {
- MongoClient.connect(uri, function(err, client) {
-  const collection = client.db("test").collection("devices");
-
-  if(err) throw err;
-    var allDocs = collection.find().toArray(function(err, docs) {
+  mongoDB.connect(connection_string, function(err, db) {
+    if(err) throw err;
+    var allDocs = db.collection(collection).find().toArray(function(err, docs) {
       callback(docs);
-      client.close();
+      db.close();
     });
   });
 }
