@@ -12,7 +12,7 @@ exports.owner = {
 'id': '10241176'
 }
 setConfig();
-
+//
 function setConfig(){
   db.getAllDocuments(db_table, function(res){
     env = {};
