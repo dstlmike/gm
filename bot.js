@@ -113,8 +113,8 @@ function postMessage(botResponse, attachments, botID) {
   botReq.on('error', function(err) {
     console.log('error posting message '  + JSON.stringify(err));
   });
-  botReq.on('timeout', function(err) {
-    console.log('timeout posting message '  + JSON.stringify(err));
+  botReq.on('timeout', function(err, res) {
+    console.log('timeout posting message '  + JSON.stringify(err) + '\n' + res);
   });
   botReq.end(JSON.stringify(body));
 }
