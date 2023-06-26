@@ -43,7 +43,7 @@ MongoClient.connect(uri, function(err, client) {
 
 //var MongoClient = require('mongodb').MongoClient;
 
-var uri = "mongodb://dstlmike1:308boonave@ac-cbqypvj-shard-00-00.f8ibx0h.mongodb.net:27017,ac-cbqypvj-shard-00-01.f8ibx0h.mongodb.net:27017,ac-cbqypvj-shard-00-02.f8ibx0h.mongodb.net:27017/?ssl=true&replicaSet=atlas-6t91cm-shard-0&authSource=admin&retryWrites=true&w=majority";
+var uri = "mongodb://dstlmike1:308boonave@ac-cbqypvj-shard-00-00.f8ibx0h.mongodb.net:27017,ac-cbqypvj-shard-00-01.f8ibx0h.mongodb.net:27017,ac-cbqypvj-shard-00-02.f8ibx0h.mongodb.net:27017/sampledb?ssl=true&replicaSet=atlas-6t91cm-shard-0&authSource=admin&retryWrites=true&w=majority";
 /*
 MongoClient.connect(uri, function(err, db) {
   var cursor = db.collection("sampledb").find({"name": 1});
