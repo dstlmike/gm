@@ -65,6 +65,21 @@ MongoClient.connect(uri, function(err, db) {
 
 */
 
+
+var MongoClient = require('mongodb').MongoClient; 
+//var url = "mongodb://localhost:27017/"; 
+MongoClient.connect(connection_string, function(err, db) { 
+  if (err) throw err; 
+  var dbo = db.mydbsampledb"); //Find all documents in the customers collection: 
+  dbo.collection("rooms").find({}).toArray(function(err, result) { 
+    if (err) throw err; 
+    console.log(result); 
+    db.close(); 
+  }); 
+});
+                                                                                                                                      
+                                                                                                                                      
+
 var mongoDB     = require('mongodb').MongoClient;
 var db = require('mongodb').Db;
 var connection_string = 'mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/gm?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority';
