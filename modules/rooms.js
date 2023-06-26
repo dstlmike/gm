@@ -1,7 +1,7 @@
 var db_table = 'rooms1';
 var db = require('./db.js');
 var mod_config = require('../config/config.js');
-var rooms;
+var rooms1;
 var roomCommands = [cmdRoomAdd, cmdToken, cmdConfig];
 
 getAllRooms();
