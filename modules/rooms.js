@@ -1,7 +1,7 @@
-var db_table = 'rooms1';
+var db_table = 'rooms';
 var db = require('./db.js');
 var mod_config = require('../config/config.js');
-var rooms1;
+var rooms;
 var roomCommands = [cmdRoomAdd, cmdToken, cmdConfig];
 
 getAllRooms();
@@ -9,10 +9,10 @@ exports.modName = "Rooms Control";
 
 function getAllRooms(){
   db.getAllDocuments(db_table, function(res){
-    rooms1 = [];
+    rooms = [];
     for (room in res) {
     //  rooms[room].name = rooms[room].id; //
-      rooms1[res[room].name] = res[room].id;
+      rooms[res[room].name] = res[room].id;
     }
   });
 }
@@ -21,28 +21,28 @@ function addRoomToDB(room, callback){
   db.addDoc(db_table, room, callback);
 }
 
-function addConfigToDB(config1, callback){
-  db.addDoc('config1', config1, callback);
+function addConfigToDB(config, callback){
+  db.addDoc('config', config, callback);
 }
 
-function setAccessTokenDB(config1, callback){
-  db.updateOneDoc('config1', {config1: config1.config1}, {$set: {'access_token': config1.access_token}}, function(){
+function setAccessTokenDB(config, callback){
+  db.updateOneDoc('config1', {config: config.config}, {$set: {'access_token': config.access_token}}, function(){
     mod_config.setConfig();
   });
 }
 
 
 exports.getRooms = function() {
-  return rooms1;
+  return rooms;
 }
 
 exports.getRoom = function(path) {
   var room = {};
   path = path.toLowerCase();
 
-  if (rooms1[path]) {
+  if (rooms[path]) {
     room.type = path;
-    room.id = rooms1[path];
+    room.id = rooms[path];
   }
 
   return room;
@@ -106,14 +106,14 @@ function cmdConfig(request, currentBot, owner, callback) {
       return true;
     }
 
-    rooms1['config1'] = val[1];
+    rooms1['config'] = val[1];
     addRoomToDB({
-      name: 'config1',
+      name: 'config',
       id: val[1]
     });
 
     addConfigToDB({
-      config1: 'owner1',
+      config: 'owner',
       id: request.user_id
     });
 
