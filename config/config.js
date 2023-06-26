@@ -1,4 +1,4 @@
-var db_table = 'config1';
+var db_table = 'config';
 var db = require('../modules/db.js');
 var env = {};
 
@@ -17,10 +17,10 @@ function setConfig(){
   db.getAllDocuments(db_table, function(res){
     env = {};
     for (var conf in res){
-        env[res[conf].config1] = {};
+        env[res[conf].config] = {};
         for (var r in res[conf]){
-            if (r != 'config1' && r != '_id'){
-                env[res[conf].config1][r] = res[conf][r];
+            if (r != 'config' && r != '_id'){
+                env[res[conf].config][r] = res[conf][r];
             }
         }
     }
