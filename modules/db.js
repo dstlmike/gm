@@ -81,7 +81,7 @@ MongoClient.connect("mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mon
                                                                                                                                       
 
 var mongoDB     = require('mongodb').MongoClient;
-var db = require('mongodb').Db;
+//var db = require('mongodb').Db;
 var connection_string = "mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/gm?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
 //'mongodb://' + process.env.OPENSHIFT_MONGODB_DB_USERNAME + ':' + process.env.OPENSHIFT_MONGODB_DB_PASSWORD + '@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/gm?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'; //mongodb://127.0.0.1:27017/nodejs';
 //if(process.env.MONGODB_PASSWORD){
