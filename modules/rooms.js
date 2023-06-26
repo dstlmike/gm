@@ -42,7 +42,7 @@ exports.getRoom = function(path) {
 
 //  if (rooms[path]) {
     room.type = path;
-    room.id = rooms[path];
+    room.id = path; //rooms[path];
 //  }
 
   return room;
