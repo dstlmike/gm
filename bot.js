@@ -104,11 +104,11 @@ botID = "278d003500f103570550f5a604";
 
   botReq = HTTPS.request(options, function(res) {
       if (res.statusCode == 202 || res.statusCode == 200) {
-        console.log(res);
+       // console.log(res);
         //neat
       } else {
         console.log('rejecting bad status code ' + res.statusCode);
-        console.log(res);
+    //    console.log(res);
       }
   });
 
