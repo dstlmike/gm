@@ -21,8 +21,8 @@ function addRoomToDB(room, callback){
   db.addDoc(db_table, room, callback);
 }
 
-function addConfigToDB(config, callback){
-  db.addDoc('config1', config, callback);
+function addConfigToDB(config1, callback){
+  db.addDoc('config1', config1, callback);
 }
 
 function setAccessTokenDB(config, callback){
