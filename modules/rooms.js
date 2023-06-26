@@ -113,7 +113,7 @@ function cmdConfig(request, currentBot, owner, callback) {
     });
 
     addConfigToDB({
-      config: 'owner1',
+      config1: 'owner1',
       id: request.user_id
     });
 
