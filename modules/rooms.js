@@ -1,4 +1,4 @@
-var db_table = 'rooms';
+var db_table = 'rooms1';
 var db = require('./db.js');
 var mod_config = require('../config/config.js');
 var rooms;
@@ -9,10 +9,10 @@ exports.modName = "Rooms Control";
 
 function getAllRooms(){
   db.getAllDocuments(db_table, function(res){
-    rooms = [];
+    rooms1 = [];
     for (room in res) {
     //  rooms[room].name = rooms[room].id; //
-      rooms[res[room].name] = res[room].id;
+      rooms1[res[room].name] = res[room].id;
     }
   });
 }
@@ -22,27 +22,27 @@ function addRoomToDB(room, callback){
 }
 
 function addConfigToDB(config, callback){
-  db.addDoc('config', config, callback);
+  db.addDoc('config1', config, callback);
 }
 
 function setAccessTokenDB(config, callback){
-  db.updateOneDoc('config', {config: config.config}, {$set: {'access_token': config.access_token}}, function(){
+  db.updateOneDoc('config1', {config1: config1.config1}, {$set: {'access_token': config1.access_token}}, function(){
     mod_config.setConfig();
   });
 }
 
 
 exports.getRooms = function() {
-  return rooms;
+  return rooms1;
 }
 
 exports.getRoom = function(path) {
   var room = {};
   path = path.toLowerCase();
 
-  if (room[path]) {
+  if (rooms1[path]) {
     room.type = path;
-    room.id = rooms[path];
+    room.id = rooms1[path];
   }
 
   return room;
@@ -73,7 +73,7 @@ function cmdRoomAdd(request, currentBot, owner, callback) {
   if (regex.test(reqText)){
     var val = regex.exec(reqText);
     //console.log(owner.id);
-    if (request.user_id != '10241176' || currentBot.type != 'config')
+    if (request.user_id != '10241176' || currentBot.type != 'config1')
       return true;
 
     var roomHash = {
@@ -106,7 +106,7 @@ function cmdConfig(request, currentBot, owner, callback) {
       return true;
     }
 
-    rooms['config'] = val[1];
+    rooms1['config1'] = val[1];
     addRoomToDB({
       name: 'config1',
       id: val[1]
